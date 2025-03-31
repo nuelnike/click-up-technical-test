@@ -9,7 +9,7 @@ export const testCases = () => [{
   "testTyp": "negative",
   "testCase": "Inalid new repository creation with empty repo name."
 },{
-  "repoName": "Valid click-up test",
+  "repoName": "click-up test",
   "repoDesc": null,
   "testTyp": "negative",
   "testCase": "Inalid new repository creation with empty repo description."
