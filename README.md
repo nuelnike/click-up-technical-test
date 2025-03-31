@@ -42,12 +42,18 @@ The test suite is structured as follows:
 
 ```
 /cypress
-  ├── integration
-  │   ├── repoCreation.spec.js  # Test script for repository creation
+  ├── e2e
+  │   ├── login.cy.js  # Test script for login creation
+  │   ├── repo-creation.cy.js  # Test script for repository creation
+  ├── mixins
+  │   ├── login.js  # login reuseable functions 
+  │   ├── repo-creation.js  # repository creation reuseable functions 
   ├── support
   │   ├── commands.js           # Custom reusable Cypress commands
+  │   ├── e2e.js
   ├── fixtures
-  │   ├── testData.json         # Sample test data (optional)
+  │   ├── login-test-cases      # test case data for login
+  │   ├── repo-test-cases       # test case data for repo creation
   ├── cypress.json              # Cypress configuration file
 ```
 
@@ -58,53 +64,6 @@ The test suite is structured as follows:
 3. Enter repository details (name, description).
 4. Click the "Create Repository" button.
 5. Verify that the repository was created successfully and appears in the repository list.
-
-## Sample Test Code
-```javascript
-describe('Repository Creation', () => {
-    beforeEach(() => {
-        cy.visit('https://app.example.com/login');
-        cy.get('#username').type('testuser');
-        cy.get('#password').type('securepassword');
-        cy.get('#login-button').click();
-        cy.url().should('include', '/dashboard');
-    });
-
-    it('should create a new repository successfully', () => {
-        cy.contains('New Repository').click();
-        cy.get('#repo-name').type('automated-test-repo');
-        cy.get('#repo-description').type('This is a test repository');
-        cy.get('#create-repo-button').click();
-        cy.contains('Repository created successfully').should('be.visible');
-        cy.url().should('include', '/repo/automated-test-repo');
-        cy.get('.repo-list').should('contain', 'automated-test-repo');
-    });
-});
-```
-
-## Configuration & Environment Variables
-You can store test credentials in `cypress.env.json` to avoid hardcoding:
-```json
-{
-   "username": "testuser",
-   "password": "securepassword"
-}
-```
-Then, reference them in the test:
-```javascript
-cy.get('#username').type(Cypress.env('username'));
-cy.get('#password').type(Cypress.env('password'));
-```
-
+  
 ## Reporting & Logs
 Cypress automatically generates reports and logs under the `cypress/videos` and `cypress/screenshots` directories if a test fails.
-
-## Contribution
-If you'd like to contribute, feel free to open a PR or report issues.
-
-## License
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-Happy testing with Cypress! 🚀
-
