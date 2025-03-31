@@ -1,0 +1,24 @@
+{
+  "name": "click-up-technical-test",
+  "version": "1.0.0",
+  "description": "This project contains an automated test script for verifying the repository creation functionality using **Cypress**. The test ensures that users can successfully create a new repository and that it appears in the repository list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuelnike/click-up-technical-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nuelnike/click-up-technical-test/issues"
+  },
+  "homepage": "https://github.com/nuelnike/click-up-technical-test#readme",
+  "devDependencies": {
+    "cypress": "^14.2.1"
+  }
+}
